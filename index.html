@@ -12,9 +12,11 @@
 <body>
 
     <div id="app">
+        <h1>TO DO LIST</h1>
+        <input @keyup.enter="addTask()" v-model="newTask.text" type="text" placeholder="Aggiungi qui una task">
+        <button @click="addTask()">Click</button>
         <ul>
-            <li v-for="task in tasks">{{task.text}}</li>
-
+            <li :class="addClass()" v-for="(task, index) in tasks">{{task.text}}</li>
         </ul>
 
     </div>
