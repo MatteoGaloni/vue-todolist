@@ -25,16 +25,22 @@ createApp({
   },
   methods: {
     addTask() {
-      this.tasks.push(this.newTask);
+      this.tasks.push({
+        ...this.newTask,
+      });
+      //   this.tasks.push(this.newTask);
       console.log(this.newTask.text);
-      //   this.newTask.text = "";
+      this.newTask.text = "";
     },
-    addClass() {
+    addClass(index) {
       let addingClass = "ciao";
-      if (this.tasks.done == true) {
+      if (this.tasks[index].done == true) {
         addingClass = "striked";
       }
       return addingClass;
+    },
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
     },
   },
 }).mount("#app");
