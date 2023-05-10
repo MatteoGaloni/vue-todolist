@@ -3,6 +3,10 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      newTask: {
+        text: "",
+        done: false,
+      },
       tasks: [
         {
           text: "Fare la lavatrice",
@@ -10,7 +14,7 @@ createApp({
         },
         {
           text: "Stendere il bucato",
-          done: true,
+          done: false,
         },
         {
           text: "Piegare il bucato",
@@ -20,8 +24,17 @@ createApp({
     };
   },
   methods: {
-    prova() {
-      console.log("la prova funziona");
+    addTask() {
+      this.tasks.push(this.newTask);
+      console.log(this.newTask.text);
+      //   this.newTask.text = "";
+    },
+    addClass() {
+      let addingClass = "ciao";
+      if (this.tasks.done == true) {
+        addingClass = "striked";
+      }
+      return addingClass;
     },
   },
 }).mount("#app");
