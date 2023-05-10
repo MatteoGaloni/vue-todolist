@@ -3,10 +3,20 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      task: {
-        text: "COSA DA FARE",
-        done: false,
-      },
+      tasks: [
+        {
+          text: "Fare la lavatrice",
+          done: true,
+        },
+        {
+          text: "Stendere il bucato",
+          done: true,
+        },
+        {
+          text: "Piegare il bucato",
+          done: true,
+        },
+      ],
     };
   },
   methods: {
