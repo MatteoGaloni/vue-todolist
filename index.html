@@ -15,7 +15,7 @@
 
     <div id="app">
 
-        <div class="container p-3 card mt-3" style="width: 18rem;">
+        <div class="container p-3 card mt-3" style="width: 30rem;">
             <h1 class="text-center">TO DO LIST</h1>
             <input class="form-control" @keyup.enter="addTask()" v-model="newTask.text" type="text"
                 placeholder="Aggiungi qui una task">
@@ -23,12 +23,12 @@
             <ul class="list-group">
                 <li class="list-group-item" :class="addClass(index)" v-for="(task, index) in tasks">
                     {{task.text}}
-                    <button class="btn btn-success" @click="changeValue(index)">Fatto</button>
+                    <button class="btn btn-success" @click="changeValue(index)">{{task.done ? "Da Fare" :
+                        "Fatto"}}</button>
                     <button class="btn btn-warning" @click="deleteTask(index)">Rimuovi</button>
                 </li>
-
             </ul>
-            <!-- <p v-if="tasks.lenght == 0">Non ci sono più task da completare!!</p> -->
+            <p v-if="tasks.length < 1">Non ci sono più task da completare!!</p>
         </div>
     </div>
 

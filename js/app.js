@@ -7,6 +7,7 @@ createApp({
         text: "",
         done: false,
       },
+
       tasks: [
         {
           text: "Fare la lavatrice",
@@ -17,7 +18,7 @@ createApp({
           done: false,
         },
         {
-          text: "Piegare il bucato",
+          text: "Gettare la spazzatura",
           done: true,
         },
       ],
@@ -34,6 +35,7 @@ createApp({
       let addingClass = "";
       if (this.tasks[index].done == true) {
         addingClass = "striked";
+        // this.btnStatus = "Da completare";
       }
       return addingClass;
     },
@@ -42,6 +44,10 @@ createApp({
     },
     changeValue(index) {
       this.tasks[index].done = !this.tasks[index].done;
+      // this.btnStatus = "Da completare";
     },
+    // changeBtnstatus(index) {
+    //   this.btnStatus = this.tasks[index].done = !this.tasks[index].done;
+    // },
   },
 }).mount("#app");
